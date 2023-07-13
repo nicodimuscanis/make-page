@@ -13,11 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                                                
     // Заменяем символы новой строки на HTML-теги <br>                         
     $text = nl2br($text);                                                      
-                                                                               
-    // Открываем файл для записи                                               
+                                                                                                                   
     $file = fopen($filename, "w");                                             
                                                                                
-    // Записываем веб-страницу с введенным текстом                             
     fwrite($file, "<!DOCTYPE html>\n");                                        
     fwrite($file, "<html>\n");                                                 
     fwrite($file, "<head>\n");                                                 
@@ -28,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     fwrite($file, "<p>" . $text . "</p>\n");                                   
     fwrite($file, "</body>\n");                                                
     fwrite($file, "</html>");                                                  
-                                                                               
-    // Закрываем файл                                                          
+                                                                                  
     fclose($file);                                                             
                                                                                
     header("Location: " . $filename);                                          
